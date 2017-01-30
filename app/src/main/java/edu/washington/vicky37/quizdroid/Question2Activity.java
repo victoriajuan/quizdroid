@@ -19,7 +19,7 @@ public class Question2Activity extends AppCompatActivity {
         mathRadioButton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                View summitButton = findViewById(R.id.mathSummitButton);
+                View summitButton = (Button)findViewById(R.id.mathSummitButton);
                 summitButton.setVisibility(View.VISIBLE);
             };
         });
@@ -28,7 +28,7 @@ public class Question2Activity extends AppCompatActivity {
         mathRadioButton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                View summitButton = findViewById(R.id.mathSummitButton);
+                View summitButton = (Button)findViewById(R.id.mathSummitButton);
                 summitButton.setVisibility(View.VISIBLE);
             };
         });
@@ -37,7 +37,7 @@ public class Question2Activity extends AppCompatActivity {
         mathRadioButton3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                View summitButton = findViewById(R.id.mathSummitButton);
+                View summitButton = (Button)findViewById(R.id.mathSummitButton);
                 summitButton.setVisibility(View.VISIBLE);
             };
         });
