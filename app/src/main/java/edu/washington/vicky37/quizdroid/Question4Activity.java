@@ -18,7 +18,7 @@ public class Question4Activity extends AppCompatActivity {
         CSRadioButton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                View summitButton = (Button)findViewById(R.id.CSSummitButton);
+                View summitButton = findViewById(R.id.CSSummitButton);
                 summitButton.setVisibility(View.VISIBLE);
             };
         });
@@ -27,7 +27,7 @@ public class Question4Activity extends AppCompatActivity {
         CSRadioButton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                View summitButton = (Button)findViewById(R.id.CSSummitButton);
+                View summitButton = findViewById(R.id.CSSummitButton);
                 summitButton.setVisibility(View.VISIBLE);
             };
         });
@@ -36,7 +36,7 @@ public class Question4Activity extends AppCompatActivity {
         CSRadioButton3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                View summitButton = (Button)findViewById(R.id.CSSummitButton);
+                View summitButton = findViewById(R.id.CSSummitButton);
                 summitButton.setVisibility(View.VISIBLE);
             };
         });
@@ -45,7 +45,7 @@ public class Question4Activity extends AppCompatActivity {
         CSRadioButton4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                View summitButton = (Button)findViewById(R.id.CSSummitButton);
+                View summitButton = findViewById(R.id.CSSummitButton);
                 summitButton.setVisibility(View.VISIBLE);
             };
         });

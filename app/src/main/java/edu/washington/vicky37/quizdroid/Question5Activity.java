@@ -45,7 +45,7 @@ public class Question5Activity extends AppCompatActivity {
         marvelRadioButton4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                View summitButton = (Button)findViewById(R.id.marvelSummitButton);
+                View summitButton = findViewById(R.id.marvelSummitButton);
                 summitButton.setVisibility(View.VISIBLE);
             };
         });

@@ -18,7 +18,7 @@ public class Question3Activity extends AppCompatActivity {
         physicsRadioButton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                View summitButton = (Button)findViewById(R.id.physicsSummitButton);
+                View summitButton = findViewById(R.id.physicsSummitButton);
                 summitButton.setVisibility(View.VISIBLE);
             };
         });
@@ -27,7 +27,7 @@ public class Question3Activity extends AppCompatActivity {
         physicsRadioButton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                View summitButton = (Button)findViewById(R.id.physicsSummitButton);
+                View summitButton = findViewById(R.id.physicsSummitButton);
                 summitButton.setVisibility(View.VISIBLE);
             };
         });
@@ -36,7 +36,7 @@ public class Question3Activity extends AppCompatActivity {
         physicsRadioButton3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                View summitButton = (Button)findViewById(R.id.physicsSummitButton);
+                View summitButton = findViewById(R.id.physicsSummitButton);
                 summitButton.setVisibility(View.VISIBLE);
             };
         });
@@ -45,7 +45,7 @@ public class Question3Activity extends AppCompatActivity {
         physicsRadioButton4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                View summitButton = (Button)findViewById(R.id.physicsSummitButton);
+                View summitButton = findViewById(R.id.physicsSummitButton);
                 summitButton.setVisibility(View.VISIBLE);
             };
         });
