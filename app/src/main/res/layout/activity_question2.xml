@@ -16,12 +16,14 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:id="@+id/mathQuestionTextView" />
+        android:id="@+id/mathQuestionTextView"
+        android:textSize="23sp"/>
 
     <RadioGroup android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:id="@+id/mathQuestionLayout">
+        android:id="@+id/mathQuestionLayout"
+        android:layout_marginTop="40dp">
 
         <RadioButton
             android:text="@string/love"
@@ -60,5 +62,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
         android:id="@+id/mathSummitButton"
-        android:visibility="invisible"/>
+        android:visibility="invisible"
+        android:textAllCaps="false"/>
 </RelativeLayout>

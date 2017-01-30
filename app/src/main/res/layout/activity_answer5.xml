@@ -40,6 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="300dp"
-        android:id="@+id/finishButton5" />
+        android:id="@+id/finishButton5"
+        android:textAllCaps="false"/>
 
 </RelativeLayout>
