@@ -1,0 +1,33 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="edu.washington.vicky37.quizdroid2.MarvelMainFragment">
+
+
+    <TextView
+        android:text="@string/marvelHeroes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/marvelHeroesTextView" />
+
+    <TextView
+        android:text="@string/oneQuestions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/marvelHeroesTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="104dp"
+        android:id="@+id/MarvelIntroTextView" />
+
+    <Button
+        android:text="@string/buttonText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/marvelToQuestionButton"
+        android:textAllCaps="false"/>
+
+</RelativeLayout>

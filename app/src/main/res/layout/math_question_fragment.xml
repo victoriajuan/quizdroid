@@ -1,0 +1,63 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="edu.washington.vicky37.quizdroid2.MathQuestionFragment">
+
+    <TextView
+        android:text="@string/mathQuestion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/mathQuestionTextView"
+        android:textSize="23sp"/>
+
+    <RadioGroup android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/mathQuestionLayout"
+        android:layout_marginTop="40dp">
+
+        <RadioButton
+            android:text="@string/love"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:id="@+id/mathRadioButton1" />
+
+        <RadioButton
+            android:text="@string/like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:id="@+id/mathRadioButton2" />
+
+        <RadioButton
+            android:text="@string/alright"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:id="@+id/mathRadioButton3" />
+
+        <RadioButton
+            android:text="@string/hate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:id="@+id/mathRadioButton4" />
+    </RadioGroup>
+
+    <Button
+        android:text="@string/summit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mathQuestionLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:id="@+id/mathSummitButton"
+        android:visibility="invisible"
+        android:textAllCaps="false"/>
+
+
+</RelativeLayout>
