@@ -4,7 +4,14 @@ import android.app.Application;
 import android.os.Bundle;
 import android.util.Log;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by victoriajuan on 2/12/17.
@@ -27,8 +34,37 @@ public class QuizApp extends Application implements TopicRepository{
     public void onCreate() {
         super.onCreate();
         instance = this;
-        //this.quizes = new ArrayList<>();
-
+        FileInputStream file = null;
+        try {
+            file = openFileInput("data.json");
+            String json = readJSON(file);
+            JSONArray jsonTopics = new JSONArray(json);
+            quizes = new ArrayList<>();
+            for (int i=0; i<jsonTopics.length(); i++) {
+                JSONObject topic = jsonTopics.getJSONObject(i);
+                JSONArray qs = topic.getJSONArray("questions");
+                List<Question> questions = new ArrayList<>();
+                for (int j=0; j< qs.length(); j++) {
+                    Log.d("QuizApp", "Adding " + qs.getJSONObject(j).getString("text"));
+                    questions.add(new Question(qs.getJSONObject(j).getString("text"),
+                            qs.getJSONObject(j).getJSONArray("answers").getString(0),
+                            qs.getJSONObject(j).getJSONArray("answers").getString(1),
+                            qs.getJSONObject(j).getJSONArray("answers").getString(2),
+                            qs.getJSONObject(j).getJSONArray("answers").getString(3),
+                            qs.getJSONObject(j).getInt("answer")));
+                }
+                quizes.add(new Topic(topic.getString("title"), topic.getString("desc"), topic.getString("desc")));
+            }
+        }
+        catch (JSONException jsonEx) {}
+        catch (IOException ioEx) {}
+        finally {
+            try {
+                if (file != null)
+                    file.close();
+            }
+            catch (IOException ioEx) {}
+        }
         Log.i(TAG, "on onCreate event fired");
     }
 
@@ -81,6 +117,34 @@ public class QuizApp extends Application implements TopicRepository{
         }
         return null;
     }
+
+
+    public String readJSON(FileInputStream file) throws IOException{
+        int size = file.available();
+        byte[] buffer = new byte[size];
+        file.read(buffer);
+
+        return new String(buffer, "UTF-8");
+    }
+
+    private Topic loadTopic(JSONObject topic) throws JSONException {
+        JSONArray JA = topic.getJSONArray("questions");
+        List<Question> questions = new ArrayList<Question>();
+        for (int i=0; i< JA.length(); i++) {
+            questions.add(loadQuestion(JA.getJSONObject(i)));
+        }
+        return new Topic(topic.getString("title"), topic.getString("desc"), topic.getString("desc"));
+    }
+
+    private Question loadQuestion(JSONObject q) throws JSONException {
+        return new Question(q.getString("text"),
+                q.getJSONArray("answers").getString(0),
+                q.getJSONArray("answers").getString(1),
+                q.getJSONArray("answers").getString(2),
+                q.getJSONArray("answers").getString(3),
+                q.getInt("answer"));
+    }
+
 
     public ArrayList<String> radioButtonIndex(){
         return currentTopic.currentQuestion().choices;
