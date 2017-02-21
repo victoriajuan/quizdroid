@@ -1,4 +1,5 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,6 +13,12 @@
         android:layout_weight="0.5"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"/>
+
+    <ImageView
+        android:layout_width="74dp"
+        android:layout_height="65dp"
+        app:srcCompat="@drawable/icon"
+        android:id="@+id/imageView2" />
 
     <TextView
         android:layout_width="wrap_content"
