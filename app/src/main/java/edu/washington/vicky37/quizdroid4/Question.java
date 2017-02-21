@@ -13,8 +13,7 @@ public class Question {
     String answer3;
     String answer4;
     int correctAnswer;
-
-
+    
     public Question(String questionText, String answer1, String answer2, String answer3, String answer4, int correctAnswer) {
                 this.questionText = questionText;
                 this.answer1 = answer1;
