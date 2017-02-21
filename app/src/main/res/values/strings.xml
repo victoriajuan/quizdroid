@@ -1,0 +1,26 @@
+<resources>
+    <string name="mathText">Mathematics is the study of topics such as quantity (numbers), structure, space, and change. There is a range of views among mathematicians and philosophers as to the exact scope and definition of mathematics.</string>
+    <string name="physicsText">Physics is the natural science that involves the study of matter and its motion and behavior through space and time, along with related concepts such as energy and force. One of the most fundamental scientific disciplines, the main goal of physics is to understand how the universe behaves.</string>
+    <string name="CSText">Computer science is the study of the theory, experimentation, and engineering that form the basis for the design and use of computers. It is the scientific and practical approach to computation and its applications and the systematic study of the feasibility, structure, expression, and mechanization of the methodical procedures (or algorithms) that underlie the acquisition, representation, processing, storage, communication of, and access to information.</string>
+    <string name="marvelHeroes">The Marvel Super Heroes is an American / Canadian animated television series starring five comic-book superheroes from Marvel Comics. The first TV series based on Marvel characters, it debuted in syndication on U.S. television in 1966.</string>
+    <string name="oneQuestions">1 Question</string>
+    <string name="buttonText">Begin</string>
+    <string name="mathQuestion">Do you like math?</string>
+    <string name="physicsQuestion">Do you like physics?</string>
+    <string name="CSQuestion">Do you like Computer Science?</string>
+    <string name="marvelQuestion">Do you like Marvel Super Heroes?</string>
+    <string name="love">Love it!</string>
+    <string name="like">Like it</string>
+    <string name="alright">It is alright</string>
+    <string name="hate">Hate it!</string>
+    <string name="summit">Summit</string>
+    <string name="answers">The answer you chose is: "Love it!"</string>
+    <string name="noRightAnswer">There is no right answer</string>
+    <string name="answerFeedback">You have 1 out of 1 correct</string>
+    <string name="finish">Finish</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+</resources>
