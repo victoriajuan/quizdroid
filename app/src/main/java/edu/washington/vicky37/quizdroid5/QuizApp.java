@@ -2,15 +2,23 @@ package edu.washington.vicky37.quizdroid5;
 
 import android.app.Application;
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.os.Bundle;
+import android.util.JsonReader;
 import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedInputStream;
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.Buffer;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,21 +33,48 @@ public class QuizApp extends Application implements TopicRepository{
     public ArrayList<Topic> quizes;
     public int index;
     public static Topic currentTopic;
-    public ArrayList<String> Topics;
-    public ArrayList<String> Descs;
+    public  ArrayList<String> Topics;
+    public  ArrayList<String> Descs;
+    public BufferedInputStream fis;
+    public ArrayList<String> MathQuestions;
+    public ArrayList<String> PhysicsQuestions;
+    public ArrayList<String> MarvelQuestions;
+    public ArrayList<String> MathAnswers;
+    public ArrayList<String> PhysicsAnswers;
+    public ArrayList<String> MarvelAnswers;
+    public ArrayList<String> MathCorrect;
+    public ArrayList<String> PhysicsCorrect;
+    public ArrayList<String> MarvelCorrect;
+
 
     public QuizApp () {
         this.quizes = new ArrayList<>();
         this.index = 0;
         this.Topics = new ArrayList<>();
-
+        this.Descs = new ArrayList<>();
+        this.MathQuestions = new ArrayList<>();
+        this.PhysicsQuestions = new ArrayList<>();
+        this.MarvelQuestions = new ArrayList<>();
+        this.MarvelAnswers = new ArrayList<>();
+        this.PhysicsAnswers = new ArrayList<>();
+        this.MarvelAnswers = new ArrayList<>();
+        this.MathCorrect = new ArrayList<>();
+        this.PhysicsCorrect = new ArrayList<>();
+        this.MarvelCorrect = new ArrayList<>();
     }
+
+
     @Override
     public void onCreate() {
         super.onCreate();
         instance = this;
-        FileInputStream file = null;
+        //FileInputStream file = null;
+
+        InputStream file = null;
+
         try {
+            file = getApplicationContext().getAssets().open("data.json");
+
             file = openFileInput("data.json");
             String json = readJSON(file);
             JSONArray jsonTopics = new JSONArray(json);
@@ -62,8 +97,12 @@ public class QuizApp extends Application implements TopicRepository{
                 Descs.add(topic.getString("desc"));
             }
         }
-        catch (JSONException jsonEx) {}
-        catch (IOException ioEx) {}
+        catch (JSONException jsonEx) {
+            System.out.println("jsonException");
+        }
+        catch (IOException ioEx) {
+            System.out.println("wrong file");
+        }
         finally {
             try {
                 if (file != null)
@@ -72,6 +111,14 @@ public class QuizApp extends Application implements TopicRepository{
             catch (IOException ioEx) {}
         }
         Log.i(TAG, "on onCreate event fired");
+    }
+
+    public String readJSON(InputStream file) throws IOException{
+        int size = file.available();
+        byte[] buffer = new byte[size];
+        file.read(buffer);
+
+        return new String(buffer, "UTF-8");
     }
 
 
@@ -132,32 +179,23 @@ public class QuizApp extends Application implements TopicRepository{
         return null;
     }
 
-
-    public String readJSON(FileInputStream file) throws IOException{
-        int size = file.available();
-        byte[] buffer = new byte[size];
-        file.read(buffer);
-
-        return new String(buffer, "UTF-8");
-    }
-
-    private Topic loadTopic(JSONObject topic) throws JSONException {
-        JSONArray JA = topic.getJSONArray("questions");
-        List<Question> questions = new ArrayList<Question>();
-        for (int i=0; i< JA.length(); i++) {
-            questions.add(loadQuestion(JA.getJSONObject(i)));
-        }
-        return new Topic(topic.getString("title"), topic.getString("desc"), topic.getString("desc"));
-    }
-
-    private Question loadQuestion(JSONObject q) throws JSONException {
-        return new Question(q.getString("text"),
-                q.getJSONArray("answers").getString(0),
-                q.getJSONArray("answers").getString(1),
-                q.getJSONArray("answers").getString(2),
-                q.getJSONArray("answers").getString(3),
-                q.getInt("answer"));
-    }
+//    private Topic loadTopic(JSONObject topic) throws JSONException {
+//        JSONArray JA = topic.getJSONArray("questions");
+//        List<Question> questions = new ArrayList<Question>();
+//        for (int i=0; i< JA.length(); i++) {
+//            questions.add(loadQuestion(JA.getJSONObject(i)));
+//        }
+//        return new Topic(topic.getString("title"), topic.getString("desc"), topic.getString("desc"));
+//    }
+//
+//    private Question loadQuestion(JSONObject q) throws JSONException {
+//        return new Question(q.getString("text"),
+//                q.getJSONArray("answers").getString(0),
+//                q.getJSONArray("answers").getString(1),
+//                q.getJSONArray("answers").getString(2),
+//                q.getJSONArray("answers").getString(3),
+//                q.getInt("answer"));
+//    }
 
 
     public ArrayList<String> radioButtonIndex(){

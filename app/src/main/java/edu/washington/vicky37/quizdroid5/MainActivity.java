@@ -20,6 +20,7 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Context context = getApplicationContext();
+        this.quizApp = new QuizApp();
 
         if(isAirplaneModeOn(context)){
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
@@ -64,8 +66,19 @@ public class MainActivity extends AppCompatActivity{
 
 
         quizApp = new QuizApp();
-        final String[] names = {quizApp.getTopicList().get(0), quizApp.getTopicList().get(1), quizApp.getTopicList().get(2)};
-        final String[] descs = {quizApp.getDesdList().get(0), quizApp.getDesdList().get(1), quizApp.getDesdList().get(2)};
+        final String[] names = new String[3];
+        final String[] descs = new String[3];
+        for(int i=0; i<quizApp.getTopicList().size(); i++){
+            names[i] = quizApp.getTopicList().get(i);
+            System.out.println(quizApp.getTopicList().get(i));
+        }
+        for(int i=0; i<quizApp.getDesdList().size(); i++){
+            descs[i] = quizApp.getDesdList().get(i);
+        }
+//        System.err.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+//        System.err.println(Arrays.toString(names));
+//        final String[] names = {quizApp.getTopicList().get(0), quizApp.getTopicList().get(1), quizApp.getTopicList().get(2)};
+//        final String[] descs = {quizApp.getDesdList().get(0), quizApp.getDesdList().get(1), quizApp.getDesdList().get(2)};
         ArrayList<Map<String, String>> jsonData = new ArrayList<>();
         for(int i=0; i<names.length; i++){
             Map<String, String> jsonMap = new HashMap<>(2);

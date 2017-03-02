@@ -15,7 +15,7 @@ import java.net.URL;
  * Created by victoriajuan on 2/26/17.
  */
 
-public class Receiver extends BroadcastReceiver{
+public class DownloadReceiver extends BroadcastReceiver{
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -25,7 +25,7 @@ public class Receiver extends BroadcastReceiver{
             urlConnection.setRequestMethod("GET");
             urlConnection.setDoOutput(true);
             urlConnection.connect();
-            File SDCardRoot = new File("/Users/victoriajuan/AndroidStudioProjects/quizdroid/app/src/main/java/edu/washington/vicky37/quizdroid5");
+            File SDCardRoot = new File("/Users/victoriajuan/AndroidStudioProjects/QuizDroid5/app/src/main/java/edu/washington/vicky37");
             File file = new File(SDCardRoot, "data.json");
             FileOutputStream fileOutput = new FileOutputStream(file);
             InputStream inputStream = urlConnection.getInputStream();
